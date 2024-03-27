@@ -27,52 +27,47 @@ var adiversario = [
 // Texto da narrativa do jogo
 
 var opcaoDoJogo = {
-    inicio:`Então ${jogadorPrincipal.name}
+    inicio:`Então ${player.nome}
     já se passaram alguns dias desde que você se juntou à Guilda dos Aventureiros, e você estava se preparando para sua primeira incursão em uma masmorra!
     Após alguns dias de viagem, você  chega à entrada da misteriosa masmorra. Você está cheio de expectativas enquanto se aproxima. A entrada da masmorra 
     está diante de você, escura e ameaçadora. As paredes de pedra são escorregadias de umidade, e o ar cheira a mofo e decomposição.
     O que você quer fazer?
-    (A) Entrar na Caverna
+    (A) Entrar na Caveerna
     (B) Explorar
     `,
-
-    entrarNacaverna: `Ao entrar na masmorra, você percebe que as paredes estão cobertas por símbolos estranhos, emitindo uma luz fraca na penumbra. O ar 
+    entarNacaveerna:`Ao entrar na masmorra, você percebe que as paredes estão cobertas por símbolos estranhos, emitindo uma luz fraca na penumbra. O ar 
     dentro está impregnado com o cheiro forte de morte e decomposição, fazendo sua pele arrepiar. Você consegue ouvir os sons distantes de algo se movendo 
     nas profundezas da masmorra, mas não consegue identificar exatamente o que é.
     O que você quer fazer?
     (A) Seguir caminho
     (B) Analisar p interior da caverna
     `,
-
-    explorar: [` ${jogadorPrincipal.name} Você decidiu explorar a área circundante. Após uma busca sem resultados na área, você se dirige à masmorra, aceitando a tranquilidade antes do
-    desafio iminente. Embora sem descobertas notáveis, a expectativa cresce enquanto você se prepara para adentrar a dungeon.
-    `,
-    `
-    ${jogadorPrincipal.name} Você decide explorar a área circundante, esperando encontrar pistas ou recursos
-    valiosos que possam ajudá-lo em sua missão. Enquanto explora, nota algumas marcas entalhadas nas árvores próximas que lhe deixam curioso, você continua 
-    a busca e finalmente descobre algo: um frasco misterioso escondido entre as folhas caídas, ele contém uma substância brilhante de cor azul intensa. 
-    Intrigado, você examina mais de perto o frasco e percebe que se trata de uma poção mágica. A etiqueta, escrita em uma língua antiga, sugere que a poção
-    tem propriedades de cura
-    Você ganhou (+200) pontos de Vida !
-    `
-],
-
-seguirCaminhando: [
-    `Ao seguir caminhando você tropeça...
+    explorar:[` ${player.nome} Você decidiu explorar a área circundante. Após uma busca sem resultados na área, você se dirige à masmorra, aceitando a tranquilidade antes do
+        desafio iminente. Embora sem descobertas notáveis, a expectativa cresce enquanto você se prepara para adentrar a dungeon.
+        `,
+        `
+        ${player.nome} Você decide explorar a área circundante, esperando encontrar pistas ou recursos
+        valiosos que possam ajudá-lo em sua missão. Enquanto explora, nota algumas marcas entalhadas nas árvores próximas que lhe deixam curioso, você continua 
+        a busca e finalmente descobre algo: um frasco misterioso escondido entre as folhas caídas, ele contém uma substância brilhante de cor azul intensa. 
+        Intrigado, você examina mais de perto o frasco e percebe que se trata de uma poção mágica. A etiqueta, escrita em uma língua antiga, sugere que a poção
+        tem propriedades de cura
+        Você ganhou (+200) pontos de Vida !
+        `
+    ],
+    seguirCaminhando:[
+        `Ao seguir caminhando você tropeça...
         Você perdeu (-200) pontos de Vida !
         `,
         `Ao seguir caminhando pela caverna, o tempo passa e a sua a equipe de aventureiros começa a ganhar confiança, a atenção vai se dispersando e quando notam, todos estão
         fazendo piadas em tom de voz descontraído. Tudo parece estar indo bem até que todos começam a ouvir um ruído arrepiante surgindo em meio a suas vozes, o clima alegre
         se dissipa repentinamente, todos ficam alertas e em silêncio, tentando observar o que os espera pela frente.
         `,
-
         `Ao olhar adiante, sua equipe depara-se com um grupo de esqueletos dispostos em uma formação ameaçadora. Suas figuras ósseas parecem animadas e prontas para o combate 
         enquanto ficam próximas a um cristal que emite uma luz fraca. As órbitas vazias dos olhos focam em você com uma intensidade sinistra conforme você se aproxima cautelosamente,
         sentindo a presença ameaçadora dos mortos-vivos.
         `
-],
-
-lutar:`
+    ],
+    lutar:`
         Finalmente o Exército foi conquistado! Uma sesação de paz invade cada centímetro da câmara... Num piscar de olhos você está em uma planície muito peculiar e ao mesmo tempo familiar
         também... você percebe que está diante de três portas...
         O que você quer fazer?
@@ -99,12 +94,25 @@ lutar:`
 
 // variavel global
 
-var acao = ""
+let acao = ""
 
 //iniciando o jogo
 
 const iniciandoJogo = () => {
     getInforJogadorPrincipal()
 
+    acao = acaoDoiniciarJogo(opcaoDoJogo.inicio, "inicio")
+
+    if(acao.toLocaleUpperCase() === "A") {
+    acao = acaoDoiniciarJogo(opcaoDoJogo.entrarNacaverna, "Entrar na caverna")
+
+    if(acao === "A") {
+        let sorte = Math.round(Math.random())
+
+        if(sorte == 0) {
+
+        }
+    }
     
+    }
 }
