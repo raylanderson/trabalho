@@ -105,4 +105,6 @@ var acao = ""
 
 const iniciandoJogo = () => {
     getInforJogadorPrincipal()
+
+    
 }
